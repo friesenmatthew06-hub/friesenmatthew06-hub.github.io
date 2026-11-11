@@ -1,1 +1,284 @@
-Hello
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EverUs ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fff0f3, #fce4ec, #ffe4e9);
+  min-height: 100vh;
+  color: #783c50;
+  padding: 30px 16px;
+}
+
+.container {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+}
+
+.heart {
+  font-size: 45px;
+  margin: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.15); }
+}
+
+h1 {
+  font-size: 48px;
+  color: #c45b7a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 17px;
+  color: #986879;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.section {
+  background: rgba(255,255,255,0.8);
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px rgba(180,90,120,0.12);
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 23px;
+  margin-bottom: 18px;
+  color: #b44e70;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #efbdcb;
+  border-radius: 12px;
+  margin-bottom: 13px;
+  font-size: 15px;
+  background: #fffafb;
+  font-family: Arial, sans-serif;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 95px;
+}
+
+input:focus, textarea:focus {
+  border-color: #d87996;
+}
+
+button {
+  background: #d66f8e;
+  color: white;
+  border: none;
+  padding: 13px 23px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #bd5576;
+  transform: translateY(-2px);
+}
+
+.reason-card {
+  background: white;
+  padding: 20px;
+  border-radius: 17px;
+  margin-bottom: 13px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(180,90,120,0.08);
+  border-left: 4px solid #e89bb0;
+}
+
+.reason-card h3 {
+  color: #bd5576;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.reason-card p {
+  line-height: 1.6;
+  color: #76515e;
+  white-space: pre-wrap;
+}
+
+.delete {
+  margin-top: 13px;
+  background: #f4d6df;
+  color: #9d4964;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.empty {
+  color: #ae8491;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+footer {
+  padding: 20px;
+  color: #b8798d;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="heart">❤️</div>
+
+  <h1>EverUs</h1>
+
+  <p class="subtitle">
+    A little place filled with all the reasons<br>
+    why you mean everything to me.
+  </p>
+
+  <div class="section">
+    <h2>Why I Love You 💗</h2>
+
+    <form id="reasonForm">
+      <input
+        id="title"
+        type="text"
+        placeholder="Give your reason a title..."
+        maxlength="70"
+        required
+      >
+
+      <textarea
+        id="reason"
+        placeholder="Write your specific reason here..."
+        maxlength="1000"
+        required
+      ></textarea>
+
+      <button type="submit">Add a reason ❤️</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>My Reasons for Loving You</h2>
+    <p class="subtitle" id="count">0 reasons and counting...</p>
+
+    <div id="reasonsList"></div>
+  </div>
+
+  <footer>
+    Made with love, just for you. ❤️
+    <br>
+    Every reason is another reminder of how special you are.
+  </footer>
+
+</div>
+
+<script>
+const form = document.getElementById("reasonForm");
+const titleInput = document.getElementById("title");
+const reasonInput = document.getElementById("reason");
+const reasonsList = document.getElementById("reasonsList");
+const count = document.getElementById("count");
+
+// Load saved reasons
+let reasons = JSON.parse(
+  localStorage.getItem("everUsReasons") || "[]"
+);
+
+function saveReasons() {
+  localStorage.setItem(
+    "everUsReasons",
+    JSON.stringify(reasons)
+  );
+}
+
+function displayReasons() {
+  reasonsList.innerHTML = "";
+
+  count.textContent =
+    reasons.length + " reasons and counting...";
+
+  if (reasons.length === 0) {
+    reasonsList.innerHTML = `
+      <div class="empty">
+        No reasons added yet.<br>
+        Start writing all the little things you love about her. 💕
+      </div>
+    `;
+    return;
+  }
+
+  reasons.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "reason-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "❤️ " + item.title;
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = item.reason;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete";
+    deleteButton.textContent = "Delete reason";
+
+    deleteButton.addEventListener("click", () => {
+      reasons.splice(index, 1);
+      saveReasons();
+      displayReasons();
+    });
+
+    card.append(heading, paragraph, deleteButton);
+    reasonsList.appendChild(card);
+  });
+}
+
+// Add a new reason
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const title = titleInput.value.trim();
+  const reason = reasonInput.value.trim();
+
+  if (!title || !reason) return;
+
+  reasons.unshift({
+    title: title,
+    reason: reason
+  });
+
+  saveReasons();
+  displayReasons();
+
+  form.reset();
+});
+
+displayReasons();
+</script>
+
+</body>
+</html>
+
