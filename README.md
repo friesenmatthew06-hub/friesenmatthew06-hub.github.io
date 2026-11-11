@@ -298,8 +298,8 @@ footer {
 <body>
 
 <header>
-  <h1>Always & Forever ♡</h1>
-  <p>A LITTLE PLACE FOR OUR LOVE</p>
+  <h1>♡ Always & Forever ♡</h1>
+  <p>OUR PLACE FOR OUR LOVE</p>
 </header>
 
 <nav>
@@ -342,10 +342,10 @@ footer {
 <section id="memories" class="page">
   <div class="heart">♡</div>
   <h2>Our Memories</h2>
-  <p class="subtitle">Little moments I'll remember forever.</p>
+  <p class="subtitle">The moments that will last a lifetime.</p>
 
   <div class="reason-card">
-    <p id="memoryDisplay">The moment we first met.</p>
+    <p id="memoryDisplay">The first day I saw you at robotics.</p>
   </div>
 
   <button class="main-btn" onclick="randomItem('memories','memoryDisplay')">
@@ -371,7 +371,7 @@ footer {
 <section id="bucket" class="page">
   <div class="heart">♡</div>
   <h2>Our Bucket Lists</h2>
-  <p class="subtitle">Everything we want to experience together.</p>
+  <p class="subtitle">All the things we WILL do.</p>
 
   <div class="tabs">
     <button class="active" onclick="setBucket('normal',this)">
@@ -397,9 +397,9 @@ footer {
 </section>
 
 <footer>
-  Made with love, for my favorite person. ♡
+  Made by Door for the most amazing girl in the whole world. ♡
   <br><br>
-  Always & Forever.
+  I will love you, Always & Forever.
 </footer>
 
 <script>
