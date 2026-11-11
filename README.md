@@ -92,18 +92,6 @@ nav button.active {
   animation: appear .4s ease;
 }
 
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 400;
-  color: #633d47;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto 20px;
-  line-height: 1.3;
-}
-
-
 @keyframes appear {
   from {opacity: 0; transform: translateY(10px);}
   to {opacity: 1; transform: translateY(0);}
@@ -111,10 +99,14 @@ h2 {
 
 h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 400;
   color: var(--dark);
-  margin-bottom: 12px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto 20px;
+  line-height: 1.3;
+  text-decoration: none;
 }
 
 .subtitle {
@@ -292,6 +284,58 @@ footer {
   .page {margin-top: 15px;}
   .reason-card p {font-size: 21px;}
 }
+
+
+/* WALKING COW */
+
+.walking-cow {
+  position: fixed;
+  bottom: 8px;
+  left: -70px;
+  font-size: 48px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: cowWalk 18s linear infinite,
+             cowBounce 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes cowWalk {
+  0% {
+    left: -70px;
+    transform: scaleX(1);
+  }
+
+  49% {
+    left: calc(100vw - 60px);
+    transform: scaleX(1);
+  }
+
+  50% {
+    left: calc(100vw - 60px);
+    transform: scaleX(-1);
+  }
+
+  99% {
+    left: -70px;
+    transform: scaleX(-1);
+  }
+
+  100% {
+    left: -70px;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cowBounce {
+  from {
+    margin-bottom: 0;
+  }
+
+  to {
+    margin-bottom: 5px;
+  }
+}
+
 </style>
 </head>
 
@@ -313,7 +357,7 @@ footer {
 <section id="reasons" class="page active">
   <div class="heart">♡</div>
   <h2>Reasons I Love You</h2>
-  <p class="subtitle">A million little reasons, all about you.</p>
+  <p class="subtitle">A million reasons I love you.</p>
 
   <div class="reason-card">
     <p id="reasonDisplay">Every little thing about you makes my world better.</p>
@@ -396,6 +440,7 @@ footer {
   </div>
 </section>
 
+<div class="walking-cow">🐄</div>
 <footer>
   Made by Door for the most amazing girl in the whole world. ♡
   <br><br>
