@@ -75,18 +75,34 @@ nav button.active {
   color: var(--dark);
 }
 
+
 .page {
   display: none;
   max-width: 750px;
+  width: 100%;
   margin: 35px auto;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
+
 
 .page.active {
   display: block;
   animation: appear .4s ease;
 }
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #633d47;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto 20px;
+  line-height: 1.3;
+}
+
 
 @keyframes appear {
   from {opacity: 0; transform: translateY(10px);}
@@ -289,7 +305,7 @@ footer {
 <nav>
   <button class="active" onclick="showPage('reasons',this)">Reasons ♡</button>
   <button onclick="showPage('memories',this)">Memories ♡</button>
-  <button onclick="showPage('bucket',this)">Our Bucket List ♡</button>
+  <button onclick="showPage('bucket',this)">Bucket List ♡</button>
 </nav>
 
 <!-- PAGE 1: REASONS -->
