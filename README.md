@@ -299,30 +299,36 @@ footer {
              cowBounce 0.5s ease-in-out infinite alternate;
 }
 
+
+
+/* WALKING COW */
+
+.walking-cow {
+  position: fixed;
+  bottom: 8px;
+  left: -70px;
+  font-size: 48px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: cowWalk 35s linear infinite,
+             cowBounce 0.5s ease-in-out infinite alternate;
+}
+
 @keyframes cowWalk {
   0% {
     left: -70px;
-    transform: scaleX(1);
-  }
-
-  49% {
-    left: calc(100vw - 60px);
-    transform: scaleX(1);
   }
 
   50% {
     left: calc(100vw - 60px);
-    transform: scaleX(-1);
   }
 
-  99% {
-    left: -70px;
-    transform: scaleX(-1);
+  50.01% {
+    left: calc(100vw - 60px);
   }
 
   100% {
     left: -70px;
-    transform: scaleX(1);
   }
 }
 
@@ -332,9 +338,10 @@ footer {
   }
 
   to {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 }
+
 
 </style>
 </head>
