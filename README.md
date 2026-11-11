@@ -295,8 +295,8 @@ footer {
   font-size: 48px;
   z-index: 9999;
   pointer-events: none;
-  animation: cowWalk 18s linear infinite,
-             cowBounce 0.35s ease-in-out infinite alternate;
+  animation: cowWalk 35s linear infinite,
+             cowBounce 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes cowWalk {
