@@ -4,9 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Always&Forever ❤️</title>
+<title>Always & Forever ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --cream: #fffaf5;
+  --pink: #f4dce0;
+  --rose: #c77b89;
+  --dark: #633d47;
+  --text: #654d50;
+  --white: #ffffff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,271 +25,609 @@
 }
 
 body {
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #fff0f3, #fce4ec, #ffe4e9);
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
-  color: #783c50;
-  padding: 30px 16px;
 }
 
-.container {
-  max-width: 650px;
-  margin: auto;
+header {
+  text-align: center;
+  padding: 35px 15px 20px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--rose);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+}
+
+nav button {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 30px;
+  transition: .2s;
+}
+
+nav button:hover,
+nav button.active {
+  background: var(--pink);
+  color: var(--dark);
+}
+
+.page {
+  display: none;
+  max-width: 750px;
+  margin: 35px auto;
+  padding: 20px;
   text-align: center;
 }
 
-.heart {
-  font-size: 45px;
-  margin: 15px;
-  animation: pulse 1.5s infinite;
+.page.active {
+  display: block;
+  animation: appear .4s ease;
 }
 
-@keyframes pulse {
-  50% { transform: scale(1.15); }
-}
-
-h1 {
-  font-size: 48px;
-  color: #c45b7a;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 17px;
-  color: #986879;
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.section {
-  background: rgba(255,255,255,0.8);
-  padding: 25px;
-  border-radius: 22px;
-  box-shadow: 0 8px 25px rgba(180,90,120,0.12);
-  margin-bottom: 25px;
+@keyframes appear {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 h2 {
-  font-size: 23px;
-  margin-bottom: 18px;
-  color: #b44e70;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 12px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #efbdcb;
-  border-radius: 12px;
-  margin-bottom: 13px;
-  font-size: 15px;
-  background: #fffafb;
-  font-family: Arial, sans-serif;
-  outline: none;
+.subtitle {
+  font-size: 14px;
+  color: var(--rose);
+  margin-bottom: 35px;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 95px;
-}
-
-input:focus, textarea:focus {
-  border-color: #d87996;
-}
-
-button {
-  background: #d66f8e;
-  color: white;
-  border: none;
-  padding: 13px 23px;
-  border-radius: 30px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  background: #bd5576;
-  transform: translateY(-2px);
+.heart {
+  font-size: 32px;
+  color: var(--rose);
+  margin-bottom: 20px;
 }
 
 .reason-card {
   background: white;
-  padding: 20px;
-  border-radius: 17px;
-  margin-bottom: 13px;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(180,90,120,0.08);
-  border-left: 4px solid #e89bb0;
-}
-
-.reason-card h3 {
-  color: #bd5576;
-  margin-bottom: 8px;
-  font-size: 18px;
+  border: 1px solid #f1dfe1;
+  border-radius: 18px;
+  padding: 45px 25px;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px #633d470a;
+  margin-bottom: 25px;
 }
 
 .reason-card p {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
   line-height: 1.6;
-  color: #76515e;
-  white-space: pre-wrap;
+  color: var(--dark);
+  font-style: italic;
 }
 
-.delete {
-  margin-top: 13px;
-  background: #f4d6df;
-  color: #9d4964;
-  padding: 8px 15px;
-  font-size: 12px;
+.main-btn {
+  background: var(--rose);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .2s;
 }
 
-.empty {
-  color: #ae8491;
-  padding: 20px;
-  line-height: 1.6;
+.main-btn:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+.add-section {
+  margin-top: 55px;
+  background: #f9edef;
+  padding: 25px;
+  border-radius: 18px;
+}
+
+.add-section h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  border: 1px solid #ead5d9;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: white;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--rose);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+.saved-list {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.saved-list h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.list-item {
+  background: white;
+  padding: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #f1dfe1;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.list-item span {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  color: #bd7d89;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tabs button {
+  padding: 12px 22px;
+  border: 1px solid #e9cdd2;
+  background: white;
+  border-radius: 30px;
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tabs button.active {
+  background: var(--rose);
+  color: white;
+}
+
+.completed {
+  opacity: .55;
+  text-decoration: line-through;
+}
+
+.check {
+  accent-color: var(--rose);
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
 footer {
-  padding: 20px;
-  color: #b8798d;
-  font-size: 14px;
+  text-align: center;
+  padding: 50px 15px 25px;
+  color: var(--rose);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+@media(max-width: 500px) {
+  header h1 {font-size: 34px;}
+  nav {gap: 3px;}
+  nav button {padding: 10px 12px; font-size: 12px;}
+  .page {margin-top: 15px;}
+  .reason-card p {font-size: 21px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+  <h1>Always & Forever ♡</h1>
+  <p>A LITTLE PLACE FOR OUR LOVE</p>
+</header>
 
-  <div class="heart">❤️</div>
+<nav>
+  <button class="active" onclick="showPage('reasons',this)">Reasons ♡</button>
+  <button onclick="showPage('memories',this)">Memories ♡</button>
+  <button onclick="showPage('bucket',this)">Our Bucket List ♡</button>
+</nav>
 
-  <h1>EverUs</h1>
+<!-- PAGE 1: REASONS -->
 
-  <p class="subtitle">
-    A little place filled with all the reasons<br>
-    why you mean everything to me.
-  </p>
+<section id="reasons" class="page active">
+  <div class="heart">♡</div>
+  <h2>Reasons I Love You</h2>
+  <p class="subtitle">A million little reasons, all about you.</p>
 
-  <div class="section">
-    <h2>Why I Love You 💗</h2>
-
-    <form id="reasonForm">
-      <input
-        id="title"
-        type="text"
-        placeholder="Give your reason a title..."
-        maxlength="70"
-        required
-      >
-
-      <textarea
-        id="reason"
-        placeholder="Write your specific reason here..."
-        maxlength="1000"
-        required
-      ></textarea>
-
-      <button type="submit">Add a reason ❤️</button>
-    </form>
+  <div class="reason-card">
+    <p id="reasonDisplay">Every little thing about you makes my world better.</p>
   </div>
 
-  <div class="section">
-    <h2>My Reasons for Loving You</h2>
-    <p class="subtitle" id="count">0 reasons and counting...</p>
+  <button class="main-btn" onclick="randomItem('reasons','reasonDisplay')">
+    Give Me A Reason ♡
+  </button>
 
+  <div class="add-section">
+    <h3>Add Another Reason</h3>
+    <textarea id="reasonInput" placeholder="I love you because..."></textarea>
+    <button class="main-btn" onclick="addItem('reasons','reasonInput')">
+      Save Reason +
+    </button>
+  </div>
+
+  <div class="saved-list">
+    <h3>Our List of Reasons</h3>
     <div id="reasonsList"></div>
   </div>
+</section>
 
-  <footer>
-    Made with love, just for you. ❤️
-    <br>
-    Every reason is another reminder of how special you are.
-  </footer>
+<!-- PAGE 2: MEMORIES -->
 
-</div>
+<section id="memories" class="page">
+  <div class="heart">♡</div>
+  <h2>Our Memories</h2>
+  <p class="subtitle">Little moments I'll remember forever.</p>
+
+  <div class="reason-card">
+    <p id="memoryDisplay">The moment we first met.</p>
+  </div>
+
+  <button class="main-btn" onclick="randomItem('memories','memoryDisplay')">
+    Remind Me Of A Memory ♡
+  </button>
+
+  <div class="add-section">
+    <h3>Add A Memory</h3>
+    <textarea id="memoryInput" placeholder="Remember when we..."></textarea>
+    <button class="main-btn" onclick="addItem('memories','memoryInput')">
+      Save Memory +
+    </button>
+  </div>
+
+  <div class="saved-list">
+    <h3>Our Memory Collection</h3>
+    <div id="memoriesList"></div>
+  </div>
+</section>
+
+<!-- PAGE 3: BUCKET LIST -->
+
+<section id="bucket" class="page">
+  <div class="heart">♡</div>
+  <h2>Our Bucket Lists</h2>
+  <p class="subtitle">Everything we want to experience together.</p>
+
+  <div class="tabs">
+    <button class="active" onclick="setBucket('normal',this)">
+      Normal ♡
+    </button>
+    <button onclick="setBucket('freaky',this)">
+      Freaky ♡
+    </button>
+  </div>
+
+  <div class="add-section" style="margin-top:0">
+    <h3 id="bucketTitle">Our Adventures</h3>
+    <input id="bucketInput" placeholder="Something we should do together...">
+    <button class="main-btn" onclick="addBucketItem()">
+      Add To Bucket List +
+    </button>
+  </div>
+
+  <div class="saved-list">
+    <h3>Things We Want To Do</h3>
+    <div id="bucketList"></div>
+  </div>
+</section>
+
+<footer>
+  Made with love, for my favorite person. ♡
+  <br><br>
+  Always & Forever.
+</footer>
 
 <script>
-const form = document.getElementById("reasonForm");
-const titleInput = document.getElementById("title");
-const reasonInput = document.getElementById("reason");
-const reasonsList = document.getElementById("reasonsList");
-const count = document.getElementById("count");
 
-// Load saved reasons
-let reasons = JSON.parse(
-  localStorage.getItem("everUsReasons") || "[]"
-);
+// PREMADE REASONS - ADD YOUR OWN HERE!
 
-function saveReasons() {
-  localStorage.setItem(
-    "everUsReasons",
-    JSON.stringify(reasons)
-  );
+const defaultReasons = [
+  "Your smile makes even my worst days better.",
+  "You make me feel like the luckiest person alive.",
+  "I love the way you laugh.",
+  "You make ordinary moments feel special.",
+  "I love spending time with you.",
+  "You make me feel appreciated.",
+  "I love how you always make me smile.",
+  "You're my favorite person to talk to.",
+  "I love your personality.",
+  "You make everything more fun.",
+  "I love the way you look at me.",
+  "You make me want to be a better person.",
+  "I love all the little things you do.",
+  "You're beautiful inside and out.",
+  "I wouldn't trade our moments for anything."
+];
+
+// PREMADE MEMORIES - CUSTOMIZE THESE!
+
+const defaultMemories = [
+  "The first time we met.",
+  "One of our favorite dates together.",
+  "The first time we said I love you.",
+  "All of our late night conversations.",
+  "The times we couldn't stop laughing.",
+  "Every little adventure we've had."
+];
+
+// SAVE AND LOAD DATA
+
+function loadData(key, defaults) {
+  const saved = localStorage.getItem(key);
+  return saved ? JSON.parse(saved) : defaults;
 }
 
-function displayReasons() {
-  reasonsList.innerHTML = "";
+let reasons = loadData('af_reasons', defaultReasons);
+let memories = loadData('af_memories', defaultMemories);
+let normalBucket = loadData('af_normal', []);
+let freakyBucket = loadData('af_freaky', []);
 
-  count.textContent =
-    reasons.length + " reasons and counting...";
+let currentBucket = 'normal';
 
-  if (reasons.length === 0) {
-    reasonsList.innerHTML = `
-      <div class="empty">
-        No reasons added yet.<br>
-        Start writing all the little things you love about her. 💕
-      </div>
-    `;
+function saveData(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+// NAVIGATION
+
+function showPage(page, button) {
+  document.querySelectorAll('.page').forEach(p =>
+    p.classList.remove('active')
+  );
+
+  document.getElementById(page).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b =>
+    b.classList.remove('active')
+  );
+
+  button.classList.add('active');
+}
+
+// RANDOM GENERATOR
+
+function randomItem(type, displayId) {
+  const list = type === 'reasons' ? reasons : memories;
+
+  if (!list.length) {
+    document.getElementById(displayId).textContent =
+      "Add something to your collection first! ♡";
     return;
   }
 
-  reasons.forEach((item, index) => {
-    const card = document.createElement("div");
-    card.className = "reason-card";
+  let item;
 
-    const heading = document.createElement("h3");
-    heading.textContent = "❤️ " + item.title;
+  if (list.length > 1) {
+    const previous = document.getElementById(displayId).dataset.last;
+    const choices = list.filter(x => x !== previous);
+    item = choices[Math.floor(Math.random() * choices.length)];
+  } else {
+    item = list[0];
+  }
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = item.reason;
+  const display = document.getElementById(displayId);
+  display.textContent = item;
+  display.dataset.last = item;
+}
 
-    const deleteButton = document.createElement("button");
-    deleteButton.className = "delete";
-    deleteButton.textContent = "Delete reason";
+// ADD REASONS AND MEMORIES
 
-    deleteButton.addEventListener("click", () => {
-      reasons.splice(index, 1);
-      saveReasons();
-      displayReasons();
-    });
+function addItem(type, inputId) {
+  const input = document.getElementById(inputId);
+  const value = input.value.trim();
 
-    card.append(heading, paragraph, deleteButton);
-    reasonsList.appendChild(card);
+  if (!value) return;
+
+  if (type === 'reasons') {
+    reasons.push(value);
+    saveData('af_reasons', reasons);
+    renderList('reasons');
+  } else {
+    memories.push(value);
+    saveData('af_memories', memories);
+    renderList('memories');
+  }
+
+  input.value = '';
+}
+
+// RENDER REASONS AND MEMORIES
+
+function renderList(type) {
+  const list = type === 'reasons' ? reasons : memories;
+  const container = document.getElementById(type + 'List');
+
+  container.replaceChildren();
+
+  list.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+
+    const text = document.createElement('span');
+    text.textContent = item;
+
+    const del = document.createElement('button');
+    del.className = 'delete-btn';
+    del.textContent = '×';
+    del.setAttribute('aria-label', 'Delete item');
+
+    del.onclick = () => {
+      list.splice(index, 1);
+      saveData(type === 'reasons' ? 'af_reasons' : 'af_memories', list);
+      renderList(type);
+    };
+
+    row.append(text, del);
+    container.appendChild(row);
   });
 }
 
-// Add a new reason
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+// BUCKET LISTS
 
-  const title = titleInput.value.trim();
-  const reason = reasonInput.value.trim();
+function setBucket(type, button) {
+  currentBucket = type;
 
-  if (!title || !reason) return;
+  document.querySelectorAll('.tabs button').forEach(b =>
+    b.classList.remove('active')
+  );
 
-  reasons.unshift({
-    title: title,
-    reason: reason
+  button.classList.add('active');
+
+  document.getElementById('bucketTitle').textContent =
+    type === 'normal' ? 'Our Adventures' : 'Our Secret List';
+
+  renderBucket();
+}
+
+function addBucketItem() {
+  const input = document.getElementById('bucketInput');
+  const value = input.value.trim();
+
+  if (!value) return;
+
+  const list = currentBucket === 'normal'
+    ? normalBucket : freakyBucket;
+
+  list.push({
+    text: value,
+    done: false
   });
 
-  saveReasons();
-  displayReasons();
+  saveData(
+    currentBucket === 'normal' ? 'af_normal' : 'af_freaky',
+    list
+  );
 
-  form.reset();
-});
+  input.value = '';
+  renderBucket();
+}
 
-displayReasons();
+function renderBucket() {
+  const list = currentBucket === 'normal'
+    ? normalBucket : freakyBucket;
+
+  const container = document.getElementById('bucketList');
+  container.replaceChildren();
+
+  list.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+
+    const check = document.createElement('input');
+    check.type = 'checkbox';
+    check.className = 'check';
+    check.checked = item.done;
+
+    const text = document.createElement('span');
+    text.textContent = item.text;
+
+    if (item.done) text.className = 'completed';
+
+    check.onchange = () => {
+      item.done = check.checked;
+      saveBucket();
+      renderBucket();
+    };
+
+    const del = document.createElement('button');
+    del.className = 'delete-btn';
+    del.textContent = '×';
+    del.setAttribute('aria-label', 'Delete item');
+
+    del.onclick = () => {
+      list.splice(index, 1);
+      saveBucket();
+      renderBucket();
+    };
+
+    row.append(check, text, del);
+    container.appendChild(row);
+  });
+}
+
+function saveBucket() {
+  saveData(
+    currentBucket === 'normal' ? 'af_normal' : 'af_freaky',
+    currentBucket === 'normal' ? normalBucket : freakyBucket
+  );
+}
+
+// INITIALIZE
+
+renderList('reasons');
+renderList('memories');
+renderBucket();
+
 </script>
 
 </body>
 </html>
-
